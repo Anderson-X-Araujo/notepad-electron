@@ -16,7 +16,7 @@
     "electron-reload": "^2.0.0-alpha.1"
   },
   "build": {
-    "appId": "norepad-electron.app",
+    "appId": "notepad-electron.app",
     "productName": "Notepad Electron",
     "files": [
       "main.js",
