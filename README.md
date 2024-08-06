@@ -1,6 +1,6 @@
 # Electron Notepad
 
-![Notepad Electron](src/assets/icons/icon.png)
+![Notepad Electron](src/assets/sample.png)
 
 ## Sobre o Projeto
 
