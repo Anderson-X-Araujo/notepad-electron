@@ -25,7 +25,8 @@ async function createWindow() {
     },
   });
 
-  await mainWindow.loadFile("src/pages/editor/index.html");
+  const filePath = path.join(app.getAppPath(), "src/pages/editor/index.html");
+  await mainWindow.loadFile(filePath);
 
   // mainWindow.webContents.openDevTools();
   createNewFile();

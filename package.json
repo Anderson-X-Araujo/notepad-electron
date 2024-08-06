@@ -19,9 +19,8 @@
     "appId": "norepad-electron.app",
     "productName": "Notepad Electron",
     "files": [
-      "*",
-      "src/**/",
-      "node_modules/**/*",
+      "main.js",
+      "src/**/*",
       "package.json"
     ],
     "directories": {
