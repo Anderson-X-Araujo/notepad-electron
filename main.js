@@ -5,6 +5,8 @@ const {
   dialog,
   ipcMain,
   shell,
+  Tray,
+  nativeImage,
 } = require("electron");
 const fs = require("fs");
 const path = require("path");
@@ -15,6 +17,10 @@ const os = require("os");
 
 // Janela Principal
 let mainWindow = null;
+let tray = null;
+// Icon
+const icon = nativeImage.createFromPath("src/assets/icons/icon.png");
+
 async function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
@@ -23,7 +29,21 @@ async function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    icon: icon,
   });
+
+  // Tray
+  tray = new Tray(icon);
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: "Fechar",
+      type: "radio",
+      role: process.platform === "darwin" ? "close" : "quit",
+    },
+  ]);
+  tray.setToolTip("This is my application");
+  tray.setTitle("This is my title");
+  tray.setContextMenu(contextMenu);
 
   const filePath = path.join(app.getAppPath(), "src/pages/editor/index.html");
   await mainWindow.loadFile(filePath);
